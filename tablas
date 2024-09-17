@@ -1,0 +1,136 @@
+-- Crear tabla para los roles
+CREATE TABLE rol (
+  ID_rol INT AUTO_INCREMENT PRIMARY KEY,
+  tipo VARCHAR(30)
+);
+
+-- Crear tabla para las descripciones de roles
+CREATE TABLE rdescription (
+  ID_rdescription INT AUTO_INCREMENT PRIMARY KEY,
+  ID_rol INT,
+  ID_usuario INT
+);
+
+-- Crear tabla para los usuarios
+CREATE TABLE usuario (
+  ID_usuario INT AUTO_INCREMENT PRIMARY KEY,
+  ID_antiguedad INT,
+  ID_ubicacion INT,
+  Nombre VARCHAR(30),
+  Apellido VARCHAR(30)
+);
+
+-- Crear tabla para las ubicaciones
+CREATE TABLE ubicacion (
+  ID_ubicacion INT AUTO_INCREMENT PRIMARY KEY,
+  ID_ciudad INT,
+  Direccion VARCHAR(50)
+);
+
+-- Crear tabla para las ciudades
+CREATE TABLE ciudad (
+  ID_ciudad INT AUTO_INCREMENT PRIMARY KEY,
+  ID_region INT,
+  Nombre VARCHAR(30)
+);
+
+-- Crear tabla para las regiones
+CREATE TABLE region (
+  ID_region INT AUTO_INCREMENT PRIMARY KEY,
+  ID_pais INT,
+  Nombre VARCHAR(30)
+);
+
+-- Crear tabla para los países
+CREATE TABLE pais (
+  ID_pais INT AUTO_INCREMENT PRIMARY KEY,
+  Nombre VARCHAR(30)
+);
+
+-- Crear tabla para las antigüedades
+CREATE TABLE antiguedad (
+  ID_antiguedad INT AUTO_INCREMENT PRIMARY KEY,
+  ID_econservacion INT,
+  ID_edisponibilidad INT,
+  ID_epoca INT,
+  ID_origen INT,
+  ID_descripcion INT,
+  ID_stock INT,
+  ID_adescripcion INT,
+  ID_mpago INT,
+  ID_entrega INT
+);
+
+-- Crear tabla para las descripciones adicionales de antigüedades
+CREATE TABLE adescripcion (
+  ID_adescripcion INT AUTO_INCREMENT PRIMARY KEY,
+  Nombre VARCHAR(30),
+  Precio FLOAT,
+  ID_usuario INT
+);
+
+-- Crear tabla para los métodos de pago
+CREATE TABLE mpago (
+  ID_mpago INT AUTO_INCREMENT PRIMARY KEY,
+  Metodo VARCHAR(30)
+);
+
+-- Crear tabla para los estados de entrega
+CREATE TABLE entrega (
+  ID_entrega INT AUTO_INCREMENT PRIMARY KEY,
+  Estado VARCHAR(30)
+);
+
+-- Crear tabla para los estados de conservación
+CREATE TABLE econservacion (
+  ID_econservacion INT AUTO_INCREMENT PRIMARY KEY,
+  Estado VARCHAR(30)
+);
+
+-- Crear tabla para los estados de disponibilidad
+CREATE TABLE edisponibilidad (
+  ID_edisponibilidad INT AUTO_INCREMENT PRIMARY KEY,
+  Estado VARCHAR(30)
+);
+
+-- Crear tabla para los tipos de transacción
+CREATE TABLE ttransaccion (
+  ID_ttransaccion INT AUTO_INCREMENT PRIMARY KEY,
+  Tipo VARCHAR(30)
+);
+
+-- Crear tabla para las transacciones
+CREATE TABLE transaccion (
+  ID_transaccion INT AUTO_INCREMENT PRIMARY KEY,
+  ID_ttransaccion INT,
+  ID_edisponibilidad INT,
+  ID_econservacion INT
+);
+
+-- Crear tabla para los detalles de las transacciones de usuarios
+CREATE TABLE dtusuario (
+  ID_dtusuario INT AUTO_INCREMENT PRIMARY KEY,
+  ID_transaccion INT,
+  ID_usuario INT
+);
+
+-- Crear tabla para los niveles de stock
+CREATE TABLE stock (
+  ID_stock INT AUTO_INCREMENT PRIMARY KEY,
+  Cant_max INT,
+  Cant_min INT,
+  Cant INT
+);
+
+-- Crear tabla para las épocas
+CREATE TABLE epoca (
+  ID_epoca INT AUTO_INCREMENT PRIMARY KEY,
+  Detalle VARCHAR(30)
+);
+
+-- Crear tabla para los orígenes
+CREATE TABLE origen (
+  ID_origen INT AUTO_INCREMENT PRIMARY KEY,
+  Detalle VARCHAR(30)
+);
+

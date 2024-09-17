@@ -1,0 +1,48 @@
+-- Agregar claves foráneas a la tabla rdescription
+ALTER TABLE rdescription
+  ADD FOREIGN KEY (ID_rol) REFERENCES rol(ID_rol),
+  ADD FOREIGN KEY (ID_usuario) REFERENCES usuario(ID_usuario);
+
+-- Agregar claves foráneas a la tabla usuario
+ALTER TABLE usuario
+  ADD FOREIGN KEY (ID_antiguedad) REFERENCES antiguedad(ID_antiguedad),
+  ADD FOREIGN KEY (ID_ubicacion) REFERENCES ubicacion(ID_ubicacion);
+
+-- Agregar claves foráneas a la tabla ubicacion
+ALTER TABLE ubicacion
+  ADD FOREIGN KEY (ID_ciudad) REFERENCES ciudad(ID_ciudad);
+
+-- Agregar claves foráneas a la tabla ciudad
+ALTER TABLE ciudad
+  ADD FOREIGN KEY (ID_region) REFERENCES region(ID_region);
+
+-- Agregar claves foráneas a la tabla region
+ALTER TABLE region
+  ADD FOREIGN KEY (ID_pais) REFERENCES pais(ID_pais);
+
+-- Agregar claves foráneas a la tabla antiguedad
+ALTER TABLE antiguedad
+  ADD FOREIGN KEY (ID_econservacion) REFERENCES econservacion(ID_econservacion),
+  ADD FOREIGN KEY (ID_edisponibilidad) REFERENCES edisponibilidad(ID_edisponibilidad),
+  ADD FOREIGN KEY (ID_epoca) REFERENCES epoca(ID_epoca),
+  ADD FOREIGN KEY (ID_origen) REFERENCES origen(ID_origen),
+  ADD FOREIGN KEY (ID_descripcion) REFERENCES adescripcion(ID_adescripcion),
+  ADD FOREIGN KEY (ID_stock) REFERENCES stock(ID_stock),
+  ADD FOREIGN KEY (ID_mpago) REFERENCES mpago(ID_mpago),
+  ADD FOREIGN KEY (ID_entrega) REFERENCES entrega(ID_entrega);
+
+-- Agregar claves foráneas a la tabla adescripcion
+ALTER TABLE adescripcion
+  ADD FOREIGN KEY (ID_usuario) REFERENCES usuario(ID_usuario);
+
+-- Agregar claves foráneas a la tabla transaccion
+ALTER TABLE transaccion
+  ADD FOREIGN KEY (ID_ttransaccion) REFERENCES ttransaccion(ID_ttransaccion),
+  ADD FOREIGN KEY (ID_edisponibilidad) REFERENCES edisponibilidad(ID_edisponibilidad),
+  ADD FOREIGN KEY (ID_econservacion) REFERENCES econservacion(ID_econservacion);
+
+-- Agregar claves foráneas a la tabla dtusuario
+ALTER TABLE dtusuario
+  ADD FOREIGN KEY (ID_transaccion) REFERENCES transaccion(ID_transaccion),
+  ADD FOREIGN KEY (ID_usuario) REFERENCES usuario(ID_usuario);
+
